@@ -1,15 +1,13 @@
-# ~akalyaev dotfiles
+# ~8xx8 dotfiles
 
-Usually I am working within the vagrant, but nonetheless, on my local
-machine I also need zsh for comfortable navigation and vim for demonstration purposes. This
-repository is designed to keep most of my working settings.
+My dotfiles.
 
-## install
+## Install
 
 Run this:
 
 ```sh
-git clone https://github.com/akalyaev/dotfiles.git ~/.dotfiles
+git clone https://github.com/Andrew8xx8/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 PWD=~/.dotfiles rake install
 ```
@@ -19,5 +17,5 @@ directory. Everything is configured and tweaked within `~/.dotfiles`.
 
 ## Thanks
 
-These dotfiles is heavily inspired by [holman does
+These dotfiles forked from [akalyaev dotfiles](https://github.com/akalyaev/dotfiles) that heavily inspired by [holman does
 dotfiles](https://github.com/holman/dotfiles).

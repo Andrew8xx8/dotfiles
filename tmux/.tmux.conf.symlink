@@ -4,6 +4,9 @@ set -g base-index 1
 # improve colors
 set -g default-terminal 'screen-256color'
 
+# BELL OFF
+set -g visual-bell off
+
 # increase scrollback lines
 set -g history-limit 10000
 

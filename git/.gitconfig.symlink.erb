@@ -10,11 +10,11 @@
   up = pull --rebase
   put = push origin HEAD
   ds = diff --staged
-  amend = commit --amend -C HEAD
+  am = commit --amend -C HEAD
   undo = reset --soft HEAD^
-  ls = log --pretty=format':%C(yellow)%h %C(blue)%ad%C(red)%d %C(reset)%s%C(green) [%cn]' --decorate --date=short
-  graph = log --graph --pretty=format':%C(yellow)%h%Cblue%d%Creset %s %C(white) %an, %ar%Creset'
-
+  lg = log --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %s %Cred%d\"
+  ll = log -10 --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %s %Cred%d\"
+  gr = log --graph --pretty=format:\"%Cred%h %Cblue%ar%Creset %Cgreen%an%Creset %s %Cred%d\"
   url =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/git\\\\.undev\\\\.cc\\\\/\\\\1/g"'
 
 [color]
@@ -43,11 +43,14 @@
 
 [core]
   excludesfile = ~/.gitignore_global
+  editor = vim
 
 [apply]
   whitespace = nowarn
 
 [mergetool]
+  summary = true
+  tool = vimdiff
   keepBackup = false
 
 [difftool]
