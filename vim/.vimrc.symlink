@@ -1,0 +1,270 @@
+" Modeline and Notes {
+" vim: set sw=4 ts=4 sts=4 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker spell:
+"
+"               ( . )  __  __  __  __  ( . )
+"              /  o  \ \ \/ /  \ \/ / /  o  \
+"              \__ __//__/\__\/__/\__\\_____/
+"
+"   This is my personal .vimrc file.
+"
+"   Inspired by:
+"     https://github.com/spf13/spf13-vim
+"     https://github.com/akalyaev/dotfiles/blob/master/vim/.vimrc.after.symlink
+"
+"   You can find me at http://8xx8.ru
+" }
+
+" Environment {
+
+  " Basics {
+    set nocompatible        " Must be first line
+    let mapleader = ","
+    set noautochdir
+  " }
+
+  " Setup Bundle Support {
+    filetype on
+    filetype off
+    set rtp+=~/.dotfiles/vim/bundle/vundle
+    call vundle#rc()
+  " }
+
+" }
+
+" Bundles {
+
+  " Use bundles config {
+    if filereadable(expand("~/.dotfiles/vim/.bundles"))
+      source ~/.dotfiles/vim/.bundles
+    endif
+  " }
+
+" }
+
+" General {
+  set clipboard=unnamed " Accessing the system clipboard
+  set hidden            " Allow buffer switching without saving
+
+  " Instead of reverting the cursor to the last position in the buffer, we
+  " set it to the first line when editing a git commit message
+  au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+  " Setting up the directories {
+    set backup                    " Backups are nice ...
+    if has('persistent_undo')
+      set undofile                " So is persistent undo ...
+      set undolevels=1000         " Maximum number of changes that can be undone
+      set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+    endif
+  " }
+
+" }
+
+" Vim UI {
+  set nospell
+  " Disable bumps
+  set novisualbell
+  set t_vb=
+
+  set mouse=v                     " Use mouse only in vsual mode
+  set wrap                        " Use word wrap
+
+  " Colours {
+    syntax enable
+    let g:solarized_termcolors=256
+    set t_Co=256
+    set background=dark
+    colorscheme solarized
+
+    set cursorline                " Highlight current line
+  " }
+
+  set backspace=indent,eol,start  " Backspace for dummies
+  set linespace=0                 " No extra spaces between rows
+  set nu                          " Line numbers on
+  set hlsearch                    " Highlight search terms
+
+  set ignorecase                  " Case insensitive search
+  set smartcase                   " Case sensitive when uc present
+  set wildmenu                    " Show list instead of just completing
+  set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
+  set scrolljump=5                " Lines to scroll when cursor leaves screen
+  set scrolloff=3                 " Minimum lines to keep above and below cursor
+  set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+
+  set showcmd
+" }
+
+" Formatting {
+
+  set nowrap                      " Wrap long lines
+  set autoindent                  " Indent at the same level of the previous line
+  set encoding=utf8
+  set fileencoding=utf8
+  set termencoding=utf8
+
+  set shiftwidth=2                " Use indents of 4 spaces
+  set expandtab                   " Tabs are spaces, not tabs
+  set tabstop=2                   " An indentation every four columns
+  set softtabstop=2               " Let backspace delete indent
+  set pastetoggle=<F3>           " pastetoggle (sane indentation on pastes)
+
+  " Remove trailing whitespaces and ^M chars
+  autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+  autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
+  autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
+  " preceding line best in a plugin but here for now.
+
+  autocmd BufNewFile,BufRead *.coffee set filetype=coffee
+
+  " Workaround vim-commentary for Haskell
+  autocmd FileType haskell setlocal commentstring=--\ %s
+  " Workaround broken colour highlighting in Haskell
+  autocmd FileType haskell setlocal nospell
+
+  " Trim whitespaces on save
+  au BufWritePre * :%s/\s\+$//e
+
+" }
+
+" Plugins stuff {
+
+  " Misc {
+    let g:NERDShutUp=1
+    let b:match_ignorecase = 1
+  " }
+
+  " NerdTree {
+    map <leader>n :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+    map <leader>e :NERDTreeFind<CR>
+    nmap <leader>nt :NERDTreeFind<CR>
+
+    let NERDTreeShowBookmarks=1
+    let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.hg', '\.svn', '\.bzr']
+    let NERDTreeChDirMode=0
+    let NERDTreeQuitOnOpen=1
+    let NERDTreeMouseMode=2
+    let NERDTreeShowHidden=1
+    let NERDTreeKeepTreeInNewTab=1
+  " }
+
+  " UndoTree {
+    nnoremap <Leader>u :UndotreeToggle<CR>
+    " If undotree is opened, it is likely one wants to interact with it.
+    let g:undotree_SetFocusWhenToggle=1
+  " }
+
+  " Unite {
+    call unite#filters#matcher_default#use(['matcher_fuzzy'])
+    nnoremap <leader>r :<C-u>Unite -start-insert file_rec<CR>
+
+    let g:unite_source_history_yank_enable = 1
+    nnoremap <leader>y :<C-u>Unite history/yank<CR>
+
+    nnoremap <leader>b :<C-u>Unite buffer<CR>
+
+    let g:unite_source_ack_command="ag --nocolor --nogroup --column"
+  " }
+
+  " Vimux {
+    nmap <F4> <Esc>:VimuxRunLastCommand<CR>
+    nmap <F5> <Esc>:VimuxPromptCommand<CR>
+  " }
+
+" }
+
+" Key (re)Mappings {
+
+  " Fast exit to normal mode
+  inoremap jj <esc>
+
+  " Stupid shift key fixes {
+    if has("user_commands")
+      command! -bang -nargs=* -complete=file E e<bang> <args>
+      command! -bang -nargs=* -complete=file W w<bang> <args>
+      command! -bang -nargs=* -complete=file Wq wq<bang> <args>
+      command! -bang -nargs=* -complete=file WQ wq<bang> <args>
+      command! -bang Wa wa<bang>
+      command! -bang WA wa<bang>
+      command! -bang Q q<bang>
+      command! -bang QA qa<bang>
+      command! -bang Qa qa<bang>
+    endif
+
+    cmap Tabe tabe
+  " }
+
+  " Visual shifting (does not exit Visual mode)
+  vnoremap < <gv
+  vnoremap > >gv
+
+  " For when you forget to sudo.. Really Write the file.
+  cmap w!! w !sudo tee % >/dev/null
+
+  " Easier horizontal scrolling
+  map zl zL
+  map zh zH
+
+  " }
+
+" Functions {
+  " Initialize directories {
+  function! InitializeDirectories()
+    let parent = $HOME
+    let prefix = 'vim'
+    let dir_list = {
+          \ 'backup': 'backupdir',
+          \ 'views': 'viewdir',
+          \ 'swap': 'directory' }
+
+    if has('persistent_undo')
+      let dir_list['undo'] = 'undodir'
+    endif
+
+    let common_dir = parent . '/.' . prefix
+
+    for [dirname, settingname] in items(dir_list)
+      let directory = common_dir . dirname . '/'
+      if exists("*mkdir")
+        if !isdirectory(directory)
+          call mkdir(directory)
+        endif
+      endif
+      if !isdirectory(directory)
+        echo "Warning: Unable to create backup directory: " . directory
+        echo "Try: mkdir -p " . directory
+      else
+        let directory = substitute(directory, " ", "\\\\ ", "g")
+        exec "set " . settingname . "=" . directory
+      endif
+    endfor
+  endfunction
+  " }
+
+  " Strip whitespace {
+  function! StripTrailingWhitespace()
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " do the business:
+    %s/\s\+$//e
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+  endfunction
+  " }
+
+" }
+
+" Smart stuff {
+
+  " Show line on GitLab (by akalyaev) {
+    nnoremap <leader>ou :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs chromium-browser<CR><CR>
+  " }
+
+" }
+
+" Finish local initializations {
+  call InitializeDirectories()
+" }
