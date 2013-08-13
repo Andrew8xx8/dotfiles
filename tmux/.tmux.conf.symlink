@@ -26,8 +26,7 @@ bind -t vi-copy 'y' copy-selection
 unbind C-b
 set -g prefix C-f
 
-# Hide spanel
-set -g status off
+source '/Users/8xx8/.dotfiles/powerline/powerline/bindings/tmux/powerline.conf'
 
 # https://github.com/seebi/tmux-colors-solarized
 #### COLOUR (Solarized light)

@@ -1,6 +1,5 @@
 let g:spf13_no_autochdir = 1
 
-Bundle 'bling/vim-airline'
 Bundle 'gorkunov/smartpairs.vim'
 Bundle 'gorkunov/smartgf.vim'
 Bundle 'jgdavey/vim-turbux'
