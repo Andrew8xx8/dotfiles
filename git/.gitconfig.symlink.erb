@@ -15,7 +15,8 @@
   lg = log --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %s %Cred%d\"
   ll = log -10 --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %s %Cred%d\"
   gr = log --graph --pretty=format:\"%Cred%h %Cblue%ar%Creset %Cgreen%an%Creset %s %Cred%d\"
-  url =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/git\\\\.undev\\\\.cc\\\\/\\\\1/g"'
+  glurl =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/git\\\\.undev\\\\.cc\\\\/\\\\1/g"'
+  ghurl =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/github\\\\.com\\\\/\\\\1/g"'
 
 [color]
   diff = auto

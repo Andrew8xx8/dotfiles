@@ -260,8 +260,13 @@
 " Smart stuff {
 
   " Show line on GitLab (by akalyaev) {
-    nnoremap <leader>ou :!echo `git url`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs chromium-browser<CR><CR>
+    nnoremap <leader>ogl :!echo `git glurl`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
   " }
+
+  " Show line on Github (by akalyaev) {
+    nnoremap <leader>ogh :!echo `git ghurl`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
+  " }
+
 
 " }
 
