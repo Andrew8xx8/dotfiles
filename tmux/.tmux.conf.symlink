@@ -18,6 +18,8 @@ bind k select-pane -U
 bind l select-pane -R
 
 # copy mode
+bind Space copy-mode
+
 bind -t vi-copy 'v' begin-selection
 bind -t vi-copy 'r' rectangle-toggle
 bind -t vi-copy 'y' copy-selection
