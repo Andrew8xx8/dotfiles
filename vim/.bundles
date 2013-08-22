@@ -32,12 +32,19 @@
   Bundle 'tpope/vim-dispatch'
 
 
+  Bundle 'Shougo/neocomplcache'
+  Bundle 'Shougo/neosnippet'
+
   " General
   Bundle 'scrooloose/nerdtree'
+  Bundle 'scrooloose/nerdcommenter'
   Bundle 'altercation/vim-colors-solarized'
+  Bundle 'telamon/vim-color-github'
   Bundle 'tpope/vim-surround'
   Bundle 'kien/ctrlp.vim'
   Bundle 'benmills/vimux'
+  Bundle 'garbas/vim-snipmate'
+  Bundle 'honza/vim-snippets'
 
   Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
 
@@ -54,6 +61,7 @@
 
   " General Programming
   Bundle 'tpope/vim-fugitive'
+  Bundle 'michaeljsmith/vim-indent-object'
 
   " Python
   " Pick either python-mode or pyflakes & pydoc
@@ -71,8 +79,14 @@
   Bundle 'tpope/vim-haml'
 
   " Ruby
+  Bundle 'sunaku/vim-ruby-minitest'
   Bundle 'tpope/vim-rails'
+  Bundle 'skwp/vim-rspec'
+  Bundle 'vim-ruby/vim-ruby'
+
   let g:rubycomplete_buffer_loading = 1
+  let g:rubycomplete_classes_in_global = 1
+  let g:rubycomplete_rails = 1
 
   " Misc
   Bundle 'tpope/vim-markdown'
