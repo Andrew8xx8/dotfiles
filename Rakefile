@@ -34,10 +34,12 @@ private
   def process_templates(files)
     # .gitconfig requirements
     @user = {}
-    STDOUT.puts "Your email:"
+    STDOUT.puts "Your email: [avk@8xx8.ru]"
     @user[:email] = STDIN.gets.strip
-    STDOUT.puts "Your fullname:"
+    @user[:email] = "avk@8xx8.ru" if @user[:email].empty?
+    STDOUT.puts "Your fullname: [Andrew8xx8]"
     @user[:fullname] = STDIN.gets.strip
+    @user[:fullname] = "Andrew8xx8" if @user[:fullname].empty?
 
     # zshrc requirements
     STDOUT.puts "oh-my-zsh theme (default: agnoster):"
