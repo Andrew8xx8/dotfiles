@@ -1,5 +1,5 @@
 # Start window numbering at 1 (default => 0)
-set -g base-index 1
+set -g base-index 0
 
 # improve colors
 set -g default-terminal 'screen-256color'
