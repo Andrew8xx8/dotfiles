@@ -31,7 +31,6 @@
   Bundle 'jgdavey/vim-turbux'
   Bundle 'tpope/vim-dispatch'
 
-
   Bundle 'Shougo/neocomplcache'
   Bundle 'Shougo/neosnippet'
   Bundle 'Shougo/vimproc.vim'
@@ -39,8 +38,8 @@
   " General
   Bundle 'scrooloose/nerdtree'
   Bundle 'scrooloose/nerdcommenter'
-  Bundle 'altercation/vim-colors-solarized'
-  Bundle 'telamon/vim-color-github'
+  Bundle 'flazz/vim-colorschemes'
+  Bundle 'biskark/vim-ultimate-colorscheme-utility'
   Bundle 'tpope/vim-surround'
   Bundle 'kien/ctrlp.vim'
   Bundle 'benmills/vimux'

@@ -141,9 +141,7 @@
   " }
 
   " NerdTree {
-    map <leader>n :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-    map <leader>e :NERDTreeFind<CR>
-    nmap <leader>nt :NERDTreeFind<CR>
+    nnoremap <F2> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
     let NERDTreeShowBookmarks=1
     let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.hg', '\.svn', '\.bzr']
@@ -300,6 +298,10 @@
 
     " Ctags {
       set tags=./tags;/,~/.vimtags
+    " }
+
+    " EasyMotion {
+      let g:EasyMotion_leader_key = ';'
     " }
 " }
 
