@@ -18,7 +18,7 @@
 
   " Basics {
     set nocompatible        " Must be first line
-    let mapleader = ","
+    let mapleader = " "
     set noautochdir
   " }
 
