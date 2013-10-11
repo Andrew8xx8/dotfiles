@@ -7,18 +7,36 @@ require 'erb'
 desc "Hook our dotfiles into system-standard positions."
 task :install do
   puts
-  puts "======================================================"
-  puts "Installing dotfiles"
-  puts "======================================================"
-  puts
+  puts "+=============================================================================="
+  puts "|"
+  puts "|                       ( . )  __  __  __  __  ( . )"
+  puts "|                      /  o  \\ \\ \\/ /  \\ \\/ / /  o  \\"
+  puts "|                      \\__ __//__/\\__\\/__/\\__\\\\_____/"
+  puts "|"
+  puts "+------------------------------------------------------------------------------"
+  puts "|  This is my personal dotfiles installer"
+  puts "|"
+  puts "|  Inspired (and sometimes copy&pasted) by:"
+  puts "|    https://github.com/thoughtbot/dotfiles"
+  puts "|    https://github.com/robbyrussell/oh-my-zsh"
+  puts "|    https://github.com/spf13/spf13-vim"
+  puts "|    https://github.com/akalyaev/dotfiles"
+  puts "|"
+  puts "|  You can find me at http://8xx8.ru"
+  puts "|"
+  puts "+=============================================================================="
+  puts "| Installing dotfiles"
+  puts "+------------------------------------------------------------------------------"
 
   process_templates(Dir.glob("#{ENV["PWD"]}/**/.*.erb"))
   file_operation(Dir.glob("#{ENV["PWD"]}/**/.*.symlink"))
 
-  puts
-  puts "======================================================"
-  puts "Installation finished successfully. Restart your terminal."
-  puts "======================================================"
+  puts "|"
+  puts "+------------------------------------------------------------------------------"
+  puts "| Installation finished successfully."
+  puts "| Restart your terminal.             "
+  puts "| Enjoy!.                            "
+  puts "+========================================================+"
   puts
 end
 
@@ -27,24 +45,19 @@ task :default => 'install'
 private
 
   def run(cmd)
-    puts "[Running] #{cmd}"
+    puts "| [Running] #{cmd}"
     `#{cmd}` unless ENV['DEBUG']
   end
 
   def process_templates(files)
     # .gitconfig requirements
     @user = {}
-    STDOUT.puts "Your email: [avk@8xx8.ru]"
+    STDOUT.puts "| Your email: [avk@8xx8.ru]"
     @user[:email] = STDIN.gets.strip
     @user[:email] = "avk@8xx8.ru" if @user[:email].empty?
-    STDOUT.puts "Your fullname: [Andrew8xx8]"
+    STDOUT.puts "| Your fullname: [Andrew8xx8]"
     @user[:fullname] = STDIN.gets.strip
     @user[:fullname] = "Andrew8xx8" if @user[:fullname].empty?
-
-    # zshrc requirements
-    STDOUT.puts "oh-my-zsh theme (default: eastwood):"
-    @theme = STDIN.gets.strip
-    @theme = "eastwood" if @theme.empty?
 
     files.each do |f|
       result = ERB.new(File.read(f)).result(binding)
@@ -61,12 +74,15 @@ private
       source = f
       target = "#{ENV["HOME"]}/#{file}"
 
-      puts "======================#{file}=============================="
-      puts "Source: #{source}"
-      puts "Target: #{target}"
+      puts "+------------------------------------------------------------------------------"
+      puts "|"
+      puts "| File: #{file}"
+      puts "| Source: #{source}"
+      puts "| Target: #{target}"
+      puts "|"
 
       if File.exists?(target) && (!File.symlink?(target) || (File.symlink?(target) && File.readlink(target) != source))
-        puts "[Overwriting] #{target}...leaving original at #{target}.backup..."
+        puts "| * [Overwriting] #{target}...leaving original at #{target}.backup..."
         run %{ mv "$HOME/#{file}" "$HOME/#{file}.backup" }
       end
 
@@ -75,8 +91,5 @@ private
       else
         run %{ cp -f "#{source}" "#{target}" }
       end
-
-      puts "=========================================================="
-      puts
     end
   end
