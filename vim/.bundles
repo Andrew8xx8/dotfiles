@@ -22,7 +22,7 @@ Bundle 'tpope/vim-dispatch'
 " General
 Bundle 'mileszs/ack.vim'
 Bundle 'Shougo/vimproc.vim'
-Bundle 'flazz/vim-colorschemes'
+Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'benmills/vimux'
