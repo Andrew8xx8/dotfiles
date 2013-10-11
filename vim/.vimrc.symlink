@@ -205,17 +205,10 @@
   " No hlsearch
   nnoremap // :nohlsearch<CR>
 
-  "Easy panes nav
-  nnoremap <c-j> <c-w>j
-  nnoremap <c-k> <c-w>k
-  nnoremap <c-h> <c-w>h
-  nnoremap <c-l> <c-w>l
-
   " Vim + Russian = LOVE
   set keymap=russian-jcukenwin
   set iminsert=0
   set imsearch=0
-  highlight lCursor guifg=NONE guibg=Cyan
 
 " }
 
@@ -281,7 +274,6 @@
   " Twitter in vim {
     let twitvim_enable_python3 = 1
   " }
-
 
 " }
 
