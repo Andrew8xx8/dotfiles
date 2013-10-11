@@ -417,6 +417,10 @@
     nnoremap <leader>ogh :!echo `git ghurl`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
   " }
 
+  " Twitter in vim {
+    let twitvim_enable_python3 = 1
+  " }
+
 
 " }
 

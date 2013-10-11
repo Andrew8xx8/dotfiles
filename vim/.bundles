@@ -92,6 +92,7 @@
   " Misc
   Bundle 'tpope/vim-markdown'
   Bundle 'spf13/vim-preview'
+  Bundle 'vim-scripts/TwitVim'
 " }
 
 " General {
