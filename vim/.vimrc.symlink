@@ -140,18 +140,6 @@
     let b:match_ignorecase = 1
   " }
 
-  " NerdTree {
-    nnoremap <F2> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
-
-    let NERDTreeShowBookmarks=1
-    let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.hg', '\.svn', '\.bzr']
-    let NERDTreeChDirMode=0
-    let NERDTreeQuitOnOpen=1
-    let NERDTreeMouseMode=2
-    let NERDTreeShowHidden=1
-    let NERDTreeKeepTreeInNewTab=1
-  " }
-
   " UndoTree {
     nnoremap <Leader>u :UndotreeToggle<CR>
     " If undotree is opened, it is likely one wants to interact with it.

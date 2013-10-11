@@ -22,7 +22,6 @@ Bundle 'tpope/vim-dispatch'
 " General
 Bundle 'mileszs/ack.vim'
 Bundle 'Shougo/vimproc.vim'
-Bundle 'scrooloose/nerdtree'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
