@@ -299,10 +299,6 @@
     " Ctags {
       set tags=./tags;/,~/.vimtags
     " }
-
-    " EasyMotion {
-      let g:EasyMotion_leader_key = ';'
-    " }
 " }
 
 " Key (re)Mappings {
