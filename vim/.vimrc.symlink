@@ -43,9 +43,6 @@
 " }
 
 " General {
-  "set clipboard=unnamed " Accessing the system clipboard
-  " set hidden            " Allow buffer switching without saving
-
   " Instead of reverting the cursor to the last position in the buffer, we
   " set it to the first line when editing a git commit message
   au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
@@ -94,7 +91,7 @@
   set scrolloff=3                 " Minimum lines to keep above and below cursor
   set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
-  set showcmd
+  set showcmd                     " Show command in status line
   set laststatus=2
 " }
 
@@ -110,7 +107,7 @@
   set expandtab                   " Tabs are spaces, not tabs
   set tabstop=2                   " An indentation every four columns
   set softtabstop=2               " Let backspace delete indent
-  set pastetoggle=<F3>           " pastetoggle (sane indentation on pastes)
+  set pastetoggle=<F3>            " pastetoggle (sane indentation on pastes)
   set foldenable                  " Auto fold code
 
   " Remove trailing whitespaces and ^M chars
@@ -133,16 +130,16 @@
 " }
 
 " Plugins stuff {
+  " Ruby {
+    let g:rubycomplete_buffer_loading = 1
+    let g:rubycomplete_classes_in_global = 1
+    let g:rubycomplete_rails = 1
+  " }
 
   " Misc {
     let g:NERDShutUp=1
     let b:match_ignorecase = 1
-  " }
-
-  " UndoTree {
-    nnoremap <Leader>u :UndotreeToggle<CR>
-    " If undotree is opened, it is likely one wants to interact with it.
-    let g:undotree_SetFocusWhenToggle=1
+    let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
   " }
 
   " Unite {
