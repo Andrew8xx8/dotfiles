@@ -58,6 +58,7 @@
   Bundle 'airblade/vim-gitgutter'
   Bundle 'gorkunov/smartpairs.vim'
   Bundle 'gorkunov/smartgf.vim'
+  Bundle 'takac/vim-hardtime'
 
   " General Programming
   Bundle 'tpope/vim-fugitive'
