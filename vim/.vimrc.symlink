@@ -46,6 +46,8 @@
   " Instead of reverting the cursor to the last position in the buffer, we
   " set it to the first line when editing a git commit message
   au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+  set noswapfile
+  set autowrite     " Automatically :write before running commands
 
   " Setting up the directories {
     set backup                    " Backups are nice ...
@@ -93,6 +95,20 @@
 
   set showcmd                     " Show command in status line
   set laststatus=2
+
+  " Simple Tab completion from
+  " https://github.com/thoughtbot/dotfiles/blob/master/vimrc#L89
+  set wildmode=list:longest,list:full
+  set complete=.,w,t
+  function! InsertTabWrapper()
+    let col = col('.') - 1
+    if !col || getline('.')[col - 1] !~ '\k'
+      return "\<tab>"
+    else
+      return "\<c-p>"
+    endif
+  endfunction
+  inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 " }
 
 " Formatting {
