@@ -23,6 +23,7 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'mileszs/ack.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
+Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'benmills/vimux'
