@@ -1,0 +1,52 @@
+DOTFILES=$HOME/.dotfiles
+
+if [ -e /usr/share/terminfo/x/xterm-256color ]; then
+  export ZSH_TMUX_TERM="screen-256color"
+  export TERM='xterm-256color'
+else
+  export TERM='xterm-color'
+fi
+
+autoload -Uz colors
+colors
+
+# load our own completion functions
+fpath=($DOTFILES/completion $fpath)
+
+# completion
+autoload -U compinit
+compinit
+
+# all of our zsh files
+for file ($DOTFILES/**/*.zsh)
+do
+  source $file
+done
+
+# automatically enter directories without cd
+setopt auto_cd
+
+# vi mode
+bindkey -v
+bindkey "^F" vi-cmd-mode
+bindkey jj vi-cmd-mode
+
+# use incremental search
+bindkey "^R" history-incremental-search-backward
+
+# add some readline keys back
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+
+# expand functions in the prompt
+setopt prompt_subst
+
+# ignore duplicate history entries
+setopt histignoredups
+
+# keep TONS of history
+export HISTSIZE=4096
+
+setopt prompt_subst
+PROMPT='%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[yellow]%}%M%{$reset_color%}%{$fg[blue]%} %~`git-prompt`%{$reset_color%} $(prompt_char) '
+RPROMPT="%{$fg[magenta]%}`rvm_prompt_info`%{$reset_color%}"
