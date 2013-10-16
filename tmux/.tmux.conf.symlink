@@ -55,6 +55,7 @@ set-option -g message-fg '#300010' #orange
 set-option -g display-panes-active-colour blue #blue
 set-option -g display-panes-colour brightred #orange
 
-# clock
-set-window-option -g clock-mode-colour green #green
+set-option -g status-right "#(uptime | cut -f 4-5 -d ' ' | cut -f 1 -d ',') [#(date +'%a%l:%M %F')]"
 
+set-window-option -g window-status-format         "#I #W#F"
+set-window-option -g window-status-current-format "#I #W#F"
