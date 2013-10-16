@@ -1,12 +1,5 @@
 DOTFILES=$HOME/.dotfiles
 
-if [ -e /usr/share/terminfo/x/xterm-256color ]; then
-  export ZSH_TMUX_TERM="screen-256color"
-  export TERM='xterm-256color'
-else
-  export TERM='xterm-color'
-fi
-
 autoload -Uz colors
 colors
 
