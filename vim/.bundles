@@ -37,6 +37,7 @@ Bundle 'gorkunov/smartpairs.vim'
 Bundle 'gorkunov/smartgf.vim'
 
 " General Programming
+Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'sheerun/vim-polyglot'
 Bundle 'tpope/vim-fugitive'

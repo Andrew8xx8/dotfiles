@@ -153,6 +153,8 @@
 " }
 
 " Plugins stuff {
+  nnoremap <F2> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+
   " Ruby {
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_classes_in_global = 1
