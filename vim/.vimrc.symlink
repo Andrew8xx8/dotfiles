@@ -75,7 +75,7 @@
     let g:solarized_termcolors=256
     set t_Co=256
     set background=dark
-    colorscheme solarized
+    colorscheme smyck
 
     set cursorline                " Highlight current line
   " }
@@ -119,7 +119,7 @@
 
 " Formatting {
 
-  set nowrap                      " Wrap long lines
+  set wrap                      " Wrap long lines
   set autoindent                  " Indent at the same level of the previous line/*{*/
   set encoding=utf8
   set fileencoding=utf8/*}*/
@@ -155,6 +155,12 @@
 " Plugins stuff {
   nnoremap <F2> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
+  let g:airline_powerline_fonts = 1
+
+  " Vroom {
+    let g:vroom_use_vimux=1
+  " }
+
   " Ruby {
     let g:rubycomplete_buffer_loading = 1
     let g:rubycomplete_classes_in_global = 1
@@ -168,17 +174,7 @@
   " }
 
   " Unite {
-    call unite#filters#matcher_default#use(['matcher_fuzzy'])
-    nnoremap <space>r :<C-u>Unite -start-insert file_rec<CR>
-
-    let g:unite_source_history_yank_enable = 1
-    nnoremap <leader>y :<C-u>Unite history/yank<CR>
-
     nnoremap <space>b :<C-u>Unite -quick-match buffer<CR>
-
-    nnoremap <space>/ :Unite grep:.<cr>
-
-    let g:unite_source_ack_command="ag --nocolor --nogroup --column"
   " }
 
   " Vimux {
@@ -186,9 +182,20 @@
     nmap <F5> <Esc>:VimuxPromptCommand<CR>
   " }
 
+  " CtrlP {
+    :let g:ctrlp_match_window_bottom = 0
+    :let g:ctrlp_match_window_reversed = 0
+    :let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py'
+    :let g:ctrlp_dotfiles = 0
+    :let g:ctrlp_switch_buffer = 0
+  " }
 " }
 
 " Key (re)Mappings {
+
+  " Better navigation on wrapped text
+  nmap j gj
+  nmap k gk
 
   " Fast exit to normal mode
   inoremap jj <esc>

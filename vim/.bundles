@@ -23,11 +23,15 @@ Bundle 'tpope/vim-dispatch'
 Bundle 'mileszs/ack.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
+Bundle "brendonrapp/smyck-vim"
+Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'benmills/vimux'
-Bundle 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
+Bundle 'skalnik/vim-vroom'
+Bundle 'bling/vim-airline'
+Bundle 'Zuckonit/vim-airline-tomato'
 Bundle 'Shougo/unite.vim'
 Bundle 't9md/vim-unite-ack'
 Bundle 'Lokaltog/vim-easymotion'
