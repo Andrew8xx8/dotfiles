@@ -5,7 +5,9 @@ require 'rake'
 require 'erb'
 
 desc "Hook our dotfiles into system-standard positions."
-task :install do
+task :install, :email, :username do |t, args|
+  args.with_defaults(email: "avk@8xx8.ru", fullname: "Andreww8xx8")
+
   puts
   puts "+=============================================================================="
   puts "|"
@@ -28,7 +30,7 @@ task :install do
   puts "| Installing dotfiles"
   puts "+------------------------------------------------------------------------------"
 
-  process_templates(Dir.glob("#{ENV["PWD"]}/**/.*.erb"))
+  process_templates(Dir.glob("#{ENV["PWD"]}/**/.*.erb"), args)
   file_operation(Dir.glob("#{ENV["PWD"]}/**/.*.symlink"))
 
   puts "|"
@@ -49,15 +51,8 @@ private
     `#{cmd}` unless ENV['DEBUG']
   end
 
-  def process_templates(files)
-    # .gitconfig requirements
-    @user = {}
-    STDOUT.puts "| Your email: [avk@8xx8.ru]"
-    @user[:email] = STDIN.gets.strip
-    @user[:email] = "avk@8xx8.ru" if @user[:email].empty?
-    STDOUT.puts "| Your fullname: [Andrew8xx8]"
-    @user[:fullname] = STDIN.gets.strip
-    @user[:fullname] = "Andrew8xx8" if @user[:fullname].empty?
+  def process_templates(files, args)
+    @user = args
 
     files.each do |f|
       result = ERB.new(File.read(f)).result(binding)
