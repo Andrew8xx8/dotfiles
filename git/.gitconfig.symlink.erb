@@ -3,18 +3,34 @@
   email = <%= @user[:email] %>
 
 [alias]
-  co = checkout
+  cp = cherry-pick
+  st = status -s
+  sta = status
+  cl = clone
   ci = commit
-  st = status
+  co = checkout
   br = branch
+
+  dc = diff --cached
+  dlc = diff --cached HEAD^
+  dr  = "!f() { git diff "$1"^.."$1"; }; f"
+
   up = pull --rebase
   put = push origin HEAD
-  ds = diff --staged
-  am = commit --amend -C HEAD
+
+  sl = stash list
+  sa = stash apply
+  ss = stash save
+
   undo = reset --soft HEAD^
+  aps = commit --amend -C HEAD
+
+  where = branch -av --contains
+
   lg = log --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %s %Cred%d\"
   ll = log -10 --pretty=format:\"%h %Cblue%ar %Cgreen%an%Creset: %s %Cred%d\"
   gr = log --graph --pretty=format:\"%Cred%h %Cblue%ar%Creset %Cgreen%an%Creset %s %Cred%d\"
+
   glurl =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/git\\\\.undev\\\\.cc\\\\/\\\\1/g"'
   ghurl =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/github\\\\.com\\\\/\\\\1/g"'
 
