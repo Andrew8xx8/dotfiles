@@ -22,7 +22,7 @@ Bundle 'jnwhiteh/vim-golang'
 Bundle 'scrooloose/syntastic'
 
 " General
-Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
 Bundle 'Shougo/vimproc.vim'
 Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 Bundle "terryma/vim-multiple-cursors"

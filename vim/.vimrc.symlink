@@ -160,6 +160,12 @@
 
   let g:airline_powerline_fonts = 1
 
+  " AG {
+    let g:aghighlight=1
+    let g:agprg = 'ag --nogroup --nocolor --column --smart-case'
+    cabbrev As AgFromSearch
+  "}
+
   " NerdTree {
     map <leader>n :NERDTreeToggle<CR>:NERDTreeMirror<CR>
 
@@ -183,7 +189,6 @@
 
   " Misc {
     let b:match_ignorecase = 1
-    let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
   " }
 
   " Unite {
