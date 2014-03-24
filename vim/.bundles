@@ -18,6 +18,8 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'jgdavey/vim-turbux'
 Bundle 'tpope/vim-dispatch'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'scrooloose/syntastic'
 
 " General
 Bundle 'mileszs/ack.vim'
@@ -31,8 +33,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'benmills/vimux'
 Bundle 'skalnik/vim-vroom'
-Bundle 'bling/vim-airline'
-Bundle 'Zuckonit/vim-airline-tomato'
+Bundle 'itchyny/lightline.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 't9md/vim-unite-ack'
 Bundle 'Lokaltog/vim-easymotion'
@@ -44,20 +45,12 @@ Bundle 'gorkunov/smartgf.vim'
 " General Programming
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'sheerun/vim-polyglot'
+" Bundle 'sheerun/vim-polyglot'
 Bundle 'tpope/vim-fugitive'
 Bundle 'michaeljsmith/vim-indent-object'
 
-" Python
-Bundle 'klen/python-mode'
-Bundle 'python.vim'
-Bundle 'python_match.vim'
-Bundle 'pythoncomplete'
-
 " Javascript
-Bundle 'groenewege/vim-less'
 Bundle 'pangloss/vim-javascript'
-Bundle 'kchmck/vim-coffee-script'
 
 " HTML
 Bundle 'tpope/vim-haml'
@@ -67,6 +60,7 @@ Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'tpope/vim-rails'
 Bundle 'skwp/vim-rspec'
 Bundle 'vim-ruby/vim-ruby'
+Bundle 'stefanoverna/vim-i18n'
 
 " Misc
 Bundle 'tpope/vim-markdown'

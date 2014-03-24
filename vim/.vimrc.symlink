@@ -23,9 +23,7 @@
   " }
 
   " Setup Bundle Support {
-    filetype on           " Enable filetype detection
-    filetype indent on    " Enable filetype-specific indenting
-    filetype plugin on    " Enable filetype-specific plugins
+    filetype off                  " required!
     set rtp+=~/.dotfiles/vim/bundle/vundle
     call vundle#rc()
   " }
@@ -43,6 +41,8 @@
 " }
 
 " General {
+  filetype indent on    " Enable filetype-specific indenting
+
   " Instead of reverting the cursor to the last position in the buffer, we
   " set it to the first line when editing a git commit message
   au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
@@ -135,7 +135,7 @@
 
   " Remove trailing whitespaces and ^M chars
   autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
-  autocmd FileType go autocmd BufWritePre <buffer> Fmt
+  " autocmd FileType go autocmd BufWritePre <buffer> Fmt
   autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
   autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
 
@@ -171,7 +171,6 @@
   " }
 
   " Misc {
-    let g:NERDShutUp=1
     let b:match_ignorecase = 1
     let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
   " }
