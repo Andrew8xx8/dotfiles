@@ -156,9 +156,20 @@
 " }
 
 " Plugins stuff {
-  nnoremap <F2> :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+  vmap <Leader>z :call I18nTranslateString()<CR>
 
   let g:airline_powerline_fonts = 1
+
+  " NerdTree {
+    map <leader>n :NERDTreeToggle<CR>:NERDTreeMirror<CR>
+
+    let g:NERDShutUp=1
+    let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+    let NERDTreeQuitOnOpen=1
+    let NERDTreeShowHidden=1
+    let NERDTreeKeepTreeInNewTab=1
+    let g:nerdtree_tabs_open_on_gui_startup=0
+  " }
 
   " Vroom {
     let g:vroom_use_vimux=1
