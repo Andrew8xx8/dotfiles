@@ -24,10 +24,8 @@ Bundle 'scrooloose/syntastic'
 " General
 Bundle 'rking/ag.vim'
 Bundle 'Shougo/vimproc.vim'
-Bundle "daylerees/colour-schemes", { "rtp": "vim-themes/" }
 Bundle "terryma/vim-multiple-cursors"
 Bundle "brendonrapp/smyck-vim"
-Bundle 'tomasr/molokai'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
@@ -41,11 +39,11 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gorkunov/smartpairs.vim'
 Bundle 'gorkunov/smartgf.vim'
+Bundle 'dhruvasagar/vim-vinegar'
 
 " General Programming
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/nerdcommenter'
-" Bundle 'sheerun/vim-polyglot'
 Bundle 'tpope/vim-fugitive'
 Bundle 'michaeljsmith/vim-indent-object'
 
