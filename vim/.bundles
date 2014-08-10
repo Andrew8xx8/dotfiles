@@ -40,6 +40,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 'gorkunov/smartpairs.vim'
 Bundle 'gorkunov/smartgf.vim'
 Bundle 'dhruvasagar/vim-vinegar'
+Bundle 'editorconfig/editorconfig-vim'
 
 " General Programming
 Bundle 'scrooloose/nerdtree'
