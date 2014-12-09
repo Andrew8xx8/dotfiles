@@ -41,4 +41,7 @@ setopt histignoredups
 export HISTSIZE=4096
 
 setopt prompt_subst
+
 PROMPT=$'%{\e[38;5;10336m%}%n%{$reset_color%}%{$reset_color%}%{$fg[blue]%} %~`git-prompt`%{$reset_color%} $(prompt_char) '
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

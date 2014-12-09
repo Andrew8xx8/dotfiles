@@ -33,6 +33,10 @@ task :install, :email, :username do |t, args|
   process_templates(Dir.glob("#{ENV["PWD"]}/**/.*.erb"), args)
   file_operation(Dir.glob("#{ENV["PWD"]}/**/.*.symlink"))
 
+  `git config merge.conflictstyle diff3`
+  `git config mergetool.prompt false`
+  `git mergetool`
+
   puts "|"
   puts "+------------------------------------------------------------------------------"
   puts "| Installation finished successfully."
