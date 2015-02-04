@@ -91,7 +91,7 @@
   set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
   set scrolljump=5                " Lines to scroll when cursor leaves screen
   set scrolloff=3                 " Minimum lines to keep above and below cursor
-  set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
+  set listchars=trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
   set showcmd                     " Show command in status line
   set laststatus=2
@@ -131,7 +131,7 @@
   set softtabstop=2               " Let backspace delete indent
   set pastetoggle=<F3>            " pastetoggle (sane indentation on pastes)
   set foldenable                  " Auto fold code
-  set list listchars=tab:»·,trail:·
+  "set list listchars=tab:  ,trail:·
 
   " Remove trailing whitespaces and ^M chars
   autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
@@ -156,6 +156,7 @@
 " }
 
 " Plugins stuff {
+  let g:syntastic_ruby_checkers          = ['rubocop', 'mri']
   vmap <Leader>z :call I18nTranslateString()<CR>
 
   let g:airline_powerline_fonts = 1
@@ -178,7 +179,7 @@
   " }
 
   " Vroom {
-    let g:vroom_use_vimux=1
+    "let g:vroom_use_vimux=1
   " }
 
   " Ruby {

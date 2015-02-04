@@ -18,7 +18,7 @@ Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'jgdavey/vim-turbux'
 Bundle 'tpope/vim-dispatch'
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 Bundle 'scrooloose/syntastic'
 
 " General
