@@ -7,6 +7,15 @@ rc() {
   git branch -D rc
 }
 
+grf() {
+  git flow release finish $1
+  git push --tags
+  git co develop
+  git push develop
+  git co master
+  git push master
+}
+
 alias gci="g ci"
 alias gcim="g ci -m"
 alias gs="g st"
@@ -21,7 +30,6 @@ alias gam="git ci --amend"
 alias gbr="git branch -a"
 
 alias grs="git flow release start"
-alias grf="git flow release finish && git push --tags && git co develop && git push develop && git co master && git push master"
 
 alias gfs="git flow feature start"
 alias gff="git flow feature finish"
@@ -30,3 +38,4 @@ alias poh="git rebase --skip"
 alias nah="git rebase --abort"
 alias zbs="git rebase --continue"
 alias ya-zdes-tzar="git push -f origin staging:staging"
+alias tzar="git push -f origin "

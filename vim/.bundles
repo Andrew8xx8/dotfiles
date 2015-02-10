@@ -61,6 +61,9 @@ Bundle 'skwp/vim-rspec'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'stefanoverna/vim-i18n'
 
+" Python
+Bundle 'klen/python-mode'
+
 " Misc
 Bundle 'tpope/vim-markdown'
 Bundle 'vim-scripts/TwitVim'

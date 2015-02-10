@@ -130,7 +130,7 @@
   set tabstop=2                   " An indentation every four columns
   set softtabstop=2               " Let backspace delete indent
   set pastetoggle=<F3>            " pastetoggle (sane indentation on pastes)
-  set foldenable                  " Auto fold code
+  "set foldenable                  " Auto fold code
   "set list listchars=tab:  ,trail:·
 
   " Remove trailing whitespaces and ^M chars
@@ -326,6 +326,10 @@
     let twitvim_enable_python3 = 1
   " }
 
+  " Python mode {
+    "let g:pymode_python = 'python3'
+    let g:pymode_folding = 0
+  " }
 " }
 
 " Finish local initializations {
