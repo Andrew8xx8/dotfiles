@@ -75,7 +75,7 @@
     let g:solarized_termcolors=256
     set t_Co=256
     set background=dark
-    colorscheme smyck
+    colorscheme github
 
     set cursorline                " Highlight current line
   " }
@@ -157,6 +157,8 @@
 
 " Plugins stuff {
   let g:syntastic_ruby_checkers          = ['rubocop', 'mri']
+  let g:syntastic_javascript_checkers = ['jsxhint']
+  let g:syntastic_python_python_exec = '/usr/local/bin/python3'
   vmap <Leader>z :call I18nTranslateString()<CR>
 
   let g:airline_powerline_fonts = 1
@@ -327,11 +329,18 @@
   " }
 
   " Python mode {
-    "let g:pymode_python = 'python3'
+    let g:pymode_python = 'python3'
     let g:pymode_folding = 0
   " }
 " }
 
 " Finish local initializations {
   call InitializeDirectories()
+" }
+
+" Russian
+ set keymap=russian-jcukenwin
+ set iminsert=0
+ set imsearch=0
+ highlight lCursor guifg=NONE guibg=Cyan
 " }

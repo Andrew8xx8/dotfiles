@@ -27,6 +27,7 @@ Bundle 'Shougo/vimproc.vim'
 Bundle "terryma/vim-multiple-cursors"
 Bundle "brendonrapp/smyck-vim"
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'endel/vim-github-colorscheme'
 Bundle 'tpope/vim-surround'
 Bundle 'kien/ctrlp.vim'
 Bundle 'benmills/vimux'
@@ -35,7 +36,7 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'Shougo/unite.vim'
 Bundle 't9md/vim-unite-ack'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'myusuf3/numbers.vim'
+"/*Bundle 'myusuf3/numbers.vim'*/
 Bundle 'airblade/vim-gitgutter'
 Bundle 'gorkunov/smartpairs.vim'
 Bundle 'gorkunov/smartgf.vim'
@@ -51,6 +52,8 @@ Bundle 'michaeljsmith/vim-indent-object'
 " Javascript
 Bundle 'pangloss/vim-javascript'
 
+Bundle 'leafgarland/typescript-vim'
+
 " HTML
 Bundle 'tpope/vim-haml'
 
@@ -62,7 +65,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'stefanoverna/vim-i18n'
 
 " Python
-Bundle 'klen/python-mode'
+Bundle 'hynek/vim-python-pep8-indent'
 
 " Misc
 Bundle 'tpope/vim-markdown'
