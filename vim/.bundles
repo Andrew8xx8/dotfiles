@@ -50,7 +50,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'michaeljsmith/vim-indent-object'
 
 " Javascript
-Bundle 'pangloss/vim-javascript'
+Bundle 'othree/yajs.vim'
 
 Bundle 'leafgarland/typescript-vim'
 
@@ -63,6 +63,7 @@ Bundle 'tpope/vim-rails'
 Bundle 'skwp/vim-rspec'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'stefanoverna/vim-i18n'
+Bundle 'slim-template/vim-slim'
 
 " Python
 Bundle 'hynek/vim-python-pep8-indent'

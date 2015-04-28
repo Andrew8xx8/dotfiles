@@ -165,7 +165,7 @@
 
   " AG {
     let g:aghighlight=1
-    let g:agprg = 'ag --nogroup --nocolor --column --smart-case --ignore coverage --ignore "**/*.log"'
+    let g:agprg = 'ag --nogroup --nocolor --column --smart-case --ignore coverage --ignore "**/*.log" --ignore=./tags'
     cabbrev As AgFromSearch
   "}
 
