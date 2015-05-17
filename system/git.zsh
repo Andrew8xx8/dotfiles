@@ -7,6 +7,13 @@ rc() {
   git branch -D rc
 }
 
+restg() {
+  git br -D staging
+  git co develop
+  git co -b staging
+  git push -f origin staging:staging
+}
+
 grf() {
   git flow release finish $1
   git push --tags
