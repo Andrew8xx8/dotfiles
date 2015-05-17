@@ -9,40 +9,33 @@ task :install, :email, :username do |t, args|
   args.with_defaults(email: "avk@8xx8.ru", fullname: "Andreww8xx8")
 
   puts
-  puts "+=============================================================================="
-  puts "|"
-  puts "|                       ( . )  __  __  __  __  ( . )"
-  puts "|                      /  o  \\ \\ \\/ /  \\ \\/ / /  o  \\"
-  puts "|                      \\__ __//__/\\__\\/__/\\__\\\\_____/"
-  puts "|"
-  puts "+------------------------------------------------------------------------------"
-  puts "|  This is my personal dotfiles installer"
-  puts "|"
-  puts "|  Inspired (and sometimes copy&pasted) by:"
-  puts "|    https://github.com/thoughtbot/dotfiles"
-  puts "|    https://github.com/robbyrussell/oh-my-zsh"
-  puts "|    https://github.com/spf13/spf13-vim"
-  puts "|    https://github.com/akalyaev/dotfiles"
-  puts "|"
-  puts "|  You can find me at http://8xx8.ru"
-  puts "|"
-  puts "+=============================================================================="
-  puts "| Installing dotfiles"
-  puts "+------------------------------------------------------------------------------"
+  puts "=============================================================================="
+  puts ""
+  puts "                       ( . )  __  __  __  __  ( . )"
+  puts "                      /  o  \\ \\ \\/ /  \\ \\/ / /  o  \\"
+  puts "                      \\__ __//__/\\__\\/__/\\__\\\\_____/"
+  puts ""
+  puts "------------------------------------------------------------------------------"
+  puts "  This is my personal dotfiles installer"
+  puts ""
+  puts "  Inspired (and sometimes copy&pasted) by:"
+  puts "    https://github.com/thoughtbot/dotfiles"
+  puts "    https://github.com/robbyrussell/oh-my-zsh"
+  puts "    https://github.com/spf13/spf13-vim"
+  puts "    https://github.com/akalyaev/dotfiles"
+  puts ""
+  puts "  You can find me at http://8xx8.ru"
+  puts ""
+  puts "=============================================================================="
+  puts " Installing dotfiles"
 
-  process_templates(Dir.glob("#{ENV["PWD"]}/**/.*.erb"), args)
-  file_operation(Dir.glob("#{ENV["PWD"]}/**/.*.symlink"))
+  process_templates Dir.glob("#{ENV["PWD"]}/**/.*.erb"), args
+  install_files Dir.glob("#{ENV["PWD"]}/**/.*.symlink")
+  install_file "#{ENV["PWD"]}/vim/.vimrc.symlink", "#{ENV["HOME"]}/.nvimrc"
 
-  `git config merge.conflictstyle diff3`
-  `git config mergetool.prompt false`
-  `git mergetool`
-
-  puts "|"
-  puts "+------------------------------------------------------------------------------"
-  puts "| Installation finished successfully."
-  puts "| Restart your terminal.             "
-  puts "| Enjoy!.                            "
-  puts "+========================================================+"
+  puts "Installation finished successfully."
+  puts "Restart your terminal.             "
+  puts "Enjoy!.                            "
   puts
 end
 
@@ -51,7 +44,7 @@ task :default => 'install'
 private
 
   def run(cmd)
-    puts "| [Running] #{cmd}"
+    puts "[Running] #{cmd}"
     `#{cmd}` unless ENV['DEBUG']
   end
 
@@ -67,28 +60,30 @@ private
     end
   end
 
-  def file_operation(files, method = :symlink)
+  def install_files(files, method = :symlink)
     files.each do |f|
       file = File.basename(f, '.*')
       source = f
       target = "#{ENV["HOME"]}/#{file}"
 
-      puts "+------------------------------------------------------------------------------"
-      puts "|"
-      puts "| File: #{file}"
-      puts "| Source: #{source}"
-      puts "| Target: #{target}"
-      puts "|"
+      install_file(source, target, method)
+    end
+  end
 
-      if File.exists?(target) && (!File.symlink?(target) || (File.symlink?(target) && File.readlink(target) != source))
-        puts "| * [Overwriting] #{target}...leaving original at #{target}.backup..."
-        run %{ mv "$HOME/#{file}" "$HOME/#{file}.backup" }
-      end
+  def install_file(source, target, method = :symlink)
+    puts ""
+    puts " #{method == :symlink ? 'Link' : 'Copy' } file #{file} "
+    puts " #{source} => #{target}"
+    puts ""
 
-      if method == :symlink
-        run %{ ln -nfs "#{source}" "#{target}" }
-      else
-        run %{ cp -f "#{source}" "#{target}" }
-      end
+    if File.exists?(target) && (!File.symlink?(target) || (File.symlink?(target) && File.readlink(target) != source))
+      puts " * [Overwriting] #{target}...leaving original at #{target}.backup..."
+      run %{ mv "$HOME/#{file}" "$HOME/#{file}.backup" }
+    end
+
+    if method == :symlink
+      run %{ ln -nfs "#{source}" "#{target}" }
+    else
+      run %{ cp -f "#{source}" "#{target}" }
     end
   end

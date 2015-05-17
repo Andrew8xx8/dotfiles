@@ -15,26 +15,19 @@
 "
 
 " Environment {
-
   " Basics {
     set nocompatible        " Must be first line
     let mapleader = " "
     set noautochdir
   " }
-
-  " Setup Bundle Support {
-    filetype off                  " required!
-    set rtp+=~/.dotfiles/vim/bundle/vundle
-    call vundle#rc()
-  " }
-
 " }
 
-" Bundles {
+" Plug {
+  source ~/.dotfiles/vim/vim-plug/plug.vim
 
-  " Use bundles config {
-    if filereadable(expand("~/.dotfiles/vim/.bundles"))
-      source ~/.dotfiles/vim/.bundles
+  " Use plug config {
+    if filereadable(expand("~/.dotfiles/vim/.plugins"))
+      source ~/.dotfiles/vim/.plugins
     endif
   " }
 
@@ -344,3 +337,6 @@
  set imsearch=0
  highlight lCursor guifg=NONE guibg=Cyan
 " }
+
+set autowrite                  " automatically write a file when leaving a modified buffer
+set shortmess+=filmnrxoOtT     " abbrev. of messages (avoids 'hit enter')

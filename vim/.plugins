@@ -1,0 +1,56 @@
+" vim: set syntax=vim sw=2 ts=2 sts=2 et tw=78 foldmarker={,} foldlevel=0 foldmethod=marker:
+
+call plug#begin('~/.vim/plugged')
+
+" Deps
+
+" General
+Plug 'rking/ag.vim'
+Plug 'tpope/vim-surround'
+Plug 'kien/ctrlp.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'Shougo/unite.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdcommenter'
+
+Plug 'gorkunov/smartpairs.vim'
+Plug 'gorkunov/smartgf.vim'
+
+" Tmux
+Plug 'benmills/vimux'
+Plug 'skalnik/vim-vroom'
+
+" Colors
+Plug 'altercation/vim-colors-solarized'
+Plug 'brendonrapp/smyck-vim'
+Plug 'endel/vim-github-colorscheme'
+
+" Git
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+
+" Javascript
+Plug 'othree/yajs.vim'
+Plug 'leafgarland/typescript-vim'
+
+" HTML
+Plug 'tpope/vim-haml'
+Plug 'slim-template/vim-slim'
+
+" Ruby
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+Plug 'stefanoverna/vim-i18n'
+Plug 'sunaku/vim-ruby-minitest'
+Plug 'skwp/vim-rspec'
+
+" Python
+Plug 'hynek/vim-python-pep8-indent'
+
+" Misc
+Plug 'tpope/vim-markdown'
+
+call plug#end()
