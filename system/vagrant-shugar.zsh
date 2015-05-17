@@ -1,5 +1,5 @@
 # Path to al VM's
-hash -d zoo=~/projects/zoo/v
+hash -d zoo=~/v
 
 # Function to manage VM's
 vm() {
