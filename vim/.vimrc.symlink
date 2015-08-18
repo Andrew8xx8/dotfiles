@@ -81,27 +81,12 @@
   set ignorecase                  " Case insensitive search
   set smartcase                   " Case sensitive when uc present
   set wildmenu                    " Show list instead of just completing
-  set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
   set scrolljump=5                " Lines to scroll when cursor leaves screen
   set scrolloff=3                 " Minimum lines to keep above and below cursor
   set listchars=trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
   set showcmd                     " Show command in status line
   set laststatus=2
-
-  " Simple Tab completion from
-  " https://github.com/thoughtbot/dotfiles/blob/master/vimrc#L89
-  set wildmode=list:longest,list:full
-  set complete=.,w,t
-  function! InsertTabWrapper()
-    let col = col('.') - 1
-    if !col || getline('.')[col - 1] !~ '\k'
-      return "\<tab>"
-    else
-      return "\<c-p>"
-    endif
-  endfunction
-  inoremap <Tab> <c-r>=InsertTabWrapper()<cr>
 
   " Quicker window movement
   nnoremap <C-j> <C-w>j

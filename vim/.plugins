@@ -46,6 +46,7 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'stefanoverna/vim-i18n'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'skwp/vim-rspec'
+Plug 'ervandew/supertab'
 
 " Python
 Plug 'hynek/vim-python-pep8-indent'
