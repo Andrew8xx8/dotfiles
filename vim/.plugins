@@ -28,6 +28,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'altercation/vim-colors-solarized'
 Plug 'brendonrapp/smyck-vim'
 Plug 'endel/vim-github-colorscheme'
+Plug 'NLKNguyen/papercolor-theme'
 
 " Git
 Plug 'airblade/vim-gitgutter'
