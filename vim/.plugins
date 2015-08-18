@@ -22,6 +22,7 @@ Plug 'gorkunov/smartgf.vim'
 " Tmux
 Plug 'benmills/vimux'
 Plug 'skalnik/vim-vroom'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Colors
 Plug 'altercation/vim-colors-solarized'
