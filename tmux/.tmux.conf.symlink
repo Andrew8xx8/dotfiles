@@ -25,6 +25,19 @@ bind -t vi-copy 'y' copy-selection
 unbind C-b
 set -g prefix C-f
 
+#unbind C-b
+#set -g prefix C-Space
+#bind Space send-prefix
+
+bind r source-file ~/.tmux.conf \; display-message "Configuration reloaded."
+
+# Update window title
+set -g set-titles on
+set -g set-titles-string '#T - #I:#W'
+
+# Show activity in background windows
+setw -g monitor-activity on
+
 # https://github.com/seebi/tmux-colors-solarized
 #### COLOUR (Solarized light)
 
@@ -51,11 +64,18 @@ set-option -g pane-active-border-fg '#7D8f6D' #base1
 set-option -g message-bg '#FFE377' #base2
 set-option -g message-fg '#300010' #orange
 
+# Window mode bar
+setw -g mode-bg white
+setw -g mode-fg black
+
+# Status bar
+set -g status-interval 10
+
 # pane number display
 set-option -g display-panes-active-colour blue #blue
 set-option -g display-panes-colour brightred #orange
 
-set-option -g status-right "#(uptime | cut -f 4-5 -d ' ' | cut -f 1 -d ',') [#(date +'%a%l:%M %F')]"
+set-option -g status-right "#(uptime | cut -f 4-5 -d ' ' | cut -f 1 -d ',') [#(date +'%a %H:%M %F')]"
 
 set-window-option -g window-status-format         "#I #W#F"
 set-window-option -g window-status-current-format "#I #W#F"

@@ -46,9 +46,7 @@ PROMPT=$'%{\e[38;5;10336m%}%n%{$reset_color%}%{$reset_color%}%{$fg[blue]%} %~`gi
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-export RBENV_ROOT=/home/vagrant/.rbenv
-export PATH=${RBENV_ROOT}/bin:$PATH
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
 
-eval "$(rbenv init -)"
-
-rbenv global 2.1.5
+export PATH=${PATH}:"/Users/avk1/Library/Android/sdk/tools":"/Users/avk1/Library/Android/sdk/platform-tools"

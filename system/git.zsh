@@ -23,6 +23,10 @@ grf() {
   git push master
 }
 
+grmb() {
+  git branch --merged | grep -v "\*" | grep -v master | grep -v dev | xargs -n 1 git branch -d
+}
+
 alias gci="g ci"
 alias gcim="g ci -m"
 alias gs="g st"

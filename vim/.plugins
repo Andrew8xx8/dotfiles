@@ -37,6 +37,7 @@ Plug 'tpope/vim-fugitive'
 " Javascript
 Plug 'othree/yajs.vim'
 Plug 'leafgarland/typescript-vim'
+Plug 'marijnh/tern_for_vim'
 
 " HTML
 Plug 'tpope/vim-haml'
