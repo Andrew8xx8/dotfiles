@@ -6,18 +6,18 @@ call plug#begin('~/.vim/plugged')
 
 " General
 Plug 'rking/ag.vim'
+Plug 'dyng/ctrlsf.vim'
 Plug 'tpope/vim-surround'
 Plug 'kien/ctrlp.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'Shougo/unite.vim'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'scrooloose/syntastic'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 
-Plug 'gorkunov/smartpairs.vim'
 Plug 'gorkunov/smartgf.vim'
+Plug 'benekastah/neomake'
 
 " Tmux
 Plug 'benmills/vimux'
@@ -35,9 +35,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
 " Javascript
+Plug 'mxw/vim-jsx'
+Plug 'mxw/vim-jsx'
 Plug 'othree/yajs.vim'
-Plug 'leafgarland/typescript-vim'
-Plug 'marijnh/tern_for_vim'
+Plug 'benjie/neomake-local-eslint.vim'
 
 " HTML
 Plug 'tpope/vim-haml'
@@ -46,7 +47,6 @@ Plug 'slim-template/vim-slim'
 " Ruby
 Plug 'tpope/vim-rails'
 Plug 'vim-ruby/vim-ruby'
-Plug 'stefanoverna/vim-i18n'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'skwp/vim-rspec'
 Plug 'ervandew/supertab'
