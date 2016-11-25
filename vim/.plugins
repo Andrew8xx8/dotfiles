@@ -36,7 +36,6 @@ Plug 'tpope/vim-fugitive'
 
 " Javascript
 Plug 'mxw/vim-jsx'
-Plug 'mxw/vim-jsx'
 Plug 'othree/yajs.vim'
 Plug 'benjie/neomake-local-eslint.vim'
 Plug 'kchmck/vim-coffee-script'
