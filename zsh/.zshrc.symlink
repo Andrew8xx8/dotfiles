@@ -43,13 +43,3 @@ export HISTSIZE=4096
 setopt prompt_subst
 
 PROMPT=$'%{\e[38;5;10336m%}%n%{$reset_color%}%{$reset_color%}%{$fg[blue]%} %~`git-prompt`%{$reset_color%} $(prompt_char) '
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export PATH=${PATH}:"/Users/avk1/Library/Android/sdk/tools":"/Users/avk1/Library/Android/sdk/platform-tools"
-
-export NVM_DIR="/Users/avk1/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

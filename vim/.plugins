@@ -17,7 +17,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
 
 Plug 'gorkunov/smartgf.vim'
-Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
 
 " Tmux
 Plug 'benmills/vimux'
@@ -37,7 +37,6 @@ Plug 'tpope/vim-fugitive'
 " Javascript
 Plug 'mxw/vim-jsx'
 Plug 'othree/yajs.vim'
-Plug 'benjie/neomake-local-eslint.vim'
 Plug 'kchmck/vim-coffee-script'
 
 " HTML
