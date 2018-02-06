@@ -1,9 +1,8 @@
 alias d="docker"
 alias dc="docker-compose"
-
-db () {
-  docker-compose build
-}
+alias dw="docker-compose run web"
+alias ds="docker-compose run --rm --service-ports web"
+alias db="docker-compose build"
 
 dcr() {
   docker-compose run --rm --service-ports $1 $2
