@@ -17,10 +17,6 @@ bind l select-pane -R
 # copy mode
 bind Space copy-mode
 
-bind -t vi-copy 'v' begin-selection
-bind -t vi-copy 'r' rectangle-toggle
-bind -t vi-copy 'y' copy-selection
-
 # act like GNU screen
 unbind C-b
 set -g prefix C-f

@@ -23,8 +23,6 @@
 " }
 
 " Plug {
-  source ~/.dotfiles/vim/vim-plug/plug.vim
-
   " Use plug config {
     if filereadable(expand("~/.dotfiles/vim/.plugins"))
       source ~/.dotfiles/vim/.plugins
