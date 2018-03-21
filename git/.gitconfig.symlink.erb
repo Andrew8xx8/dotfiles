@@ -29,6 +29,7 @@
 
   glurl =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/git\\\\.undev\\\\.cc\\\\/\\\\1/g"'
   ghurl =! bash -c 'git config --get remote.origin.url | sed -E "s/.+:\\(.+\\)\\.git$/https:\\\\/\\\\/github\\\\.com\\\\/\\\\1/g"'
+  serve = daemon --reuseaddr --base-path=.git --export-all --verbose
 
 [color]
   diff = auto
