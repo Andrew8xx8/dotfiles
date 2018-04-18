@@ -15,6 +15,7 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/nerdcommenter'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 Plug 'gorkunov/smartgf.vim'
 Plug 'w0rp/ale'
@@ -56,5 +57,8 @@ Plug 'hynek/vim-python-pep8-indent'
 
 " Misc
 Plug 'tpope/vim-markdown'
+
+Plug 'hashivim/vim-terraform'
+Plug 'juliosueiras/vim-terraform-completion'
 
 call plug#end()

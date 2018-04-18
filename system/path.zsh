@@ -11,4 +11,4 @@ export PATH=/Users/8xx8/android-sdks/tools/:/Users/8xx8/android-sdks/platform-to
 export PATH="/usr/local/heroku/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+  . "/usr/local/opt/nvm/nvm.sh"

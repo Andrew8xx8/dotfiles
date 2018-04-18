@@ -17,6 +17,8 @@
 " Environment {
   " Basics {
     set nocompatible        " Must be first line
+    syntax on
+		filetype plugin indent on
     let mapleader = " "
     set noautochdir
   " }
@@ -110,7 +112,8 @@
   "set list listchars=tab:  ,trail:·
 
   " Remove trailing whitespaces and ^M chars
-  autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+  autocmd FileType c,cpp,java,go,php,javascript,python,twig,xml,yml
+  autocmd BufWritePre <buffer> call StripTrailingWhitespace()
   " autocmd FileType go autocmd BufWritePre <buffer> Fmt
   autocmd BufNewFile,BufRead *.html.twig set filetype=html.twig
   autocmd FileType haskell setlocal expandtab shiftwidth=2 softtabstop=2
@@ -120,11 +123,6 @@
   " preceding line best in a plugin but here for now.
 
   autocmd BufNewFile,BufRead *.coffee set filetype=coffee
-
-  " Workaround vim-commentary for Haskell
-  autocmd FileType haskell setlocal commentstring=--\ %s
-  " Workaround broken colour highlighting in Haskell
-  autocmd FileType haskell setlocal nospell
 
   " Trim whitespaces on save
   au BufWritePre * :%s/\s\+$//e
@@ -138,6 +136,33 @@
   let g:ale_sign_warning = '⚠'
   highlight ALEErrorSign ctermfg=Red
   highlight ALEWarningSign ctermfg=Yellow
+
+  let g:ale_completion_enabled = 1
+  let g:ale_fixers = { 'javascript': ['eslint'], }
+  let g:ale_fix_on_save = 1
+	let g:airline#extensions#ale#enabled = 1
+
+  " Deoplete {
+    let g:deoplete#omni_patterns = {}
+    let g:deoplete#omni_patterns.terraform = '[^ *\t"{=$]\w*'
+    let g:deoplete#enable_at_startup = 1
+    " (Optional)Remove Info(Preview) window
+    set completeopt-=preview
+
+    " (Optional)Hide Info(Preview) window after completions
+    autocmd CursorMovedI * if pumvisible() == 0|pclose|endif
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+    " (Optional) Enable terraform plan to be include in filter
+    let g:syntastic_terraform_tffilter_plan = 1
+
+    " (Optional) Default: 0, enable(1)/disable(0) plugin's keymapping
+    let g:terraform_completion_keys = 1
+
+    " (Optional) Default: 1, enable(1)/disable(0) terraform module registry completion
+    let g:terraform_registry_module_completion = 0
+    call deoplete#initialize()
+  " }
 
   " AG {
     let g:ag_highlight=1
@@ -233,12 +258,6 @@
 
   " No hlsearch
   nnoremap // :nohlsearch<CR>
-
-  " Vim + Russian = LOVE
-  set keymap=russian-jcukenwin
-  set iminsert=0
-  set imsearch=0
-
 " }
 
 " Functions {
@@ -298,10 +317,6 @@
 
   " Show line on Github (by akalyaev) {
     nnoremap <leader>ogh :!echo `git ghurl`/blob/`git rev-parse --abbrev-ref HEAD`/%\#L<C-R>=line('.')<CR> \| xargs open<CR><CR>
-  " }
-
-  " Twitter in vim {
-    let twitvim_enable_python3 = 1
   " }
 
   " Python mode {
