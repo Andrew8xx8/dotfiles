@@ -62,13 +62,19 @@
 [apply]
   whitespace = nowarn
 
-[mergetool]
-  summary = true
-  tool = vimdiff
-  keepBackup = false
-
 [difftool]
   prompt = false
 
 [help]
   autocorrect = 1
+
+[merge]
+  tool = vimdiff
+
+[mergetool]
+  summary = true
+  tool = vimdiff
+  keepBackup = false
+
+[mergetool "vimdiff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'

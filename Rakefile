@@ -32,6 +32,7 @@ task :install, :email, :username do |t, args|
   process_templates Dir.glob("#{ENV["PWD"]}/**/.*.erb"), args
   install_files Dir.glob("#{ENV["PWD"]}/**/.*.symlink")
   install_file "#{ENV["PWD"]}/vim/.vimrc.symlink", "#{ENV["HOME"]}/.nvimrc"
+  install_vim
 
   puts "Installation finished successfully."
   puts "Restart your terminal.             "
@@ -86,4 +87,10 @@ private
     else
       run %{ cp -f "#{source}" "#{target}" }
     end
+  end
+
+  def install_vim
+    run %{ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim }
+    run %{ mkdir -P ~/.config/nvim/ }
+    install_file "#{ENV["PWD"]}/vim/init.vim", "#{ENV["HOME"]}/.config/nvim"
   end
