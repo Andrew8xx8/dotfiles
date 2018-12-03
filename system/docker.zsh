@@ -8,14 +8,6 @@ dcr() {
   docker-compose run --rm --service-ports $1 $2
 }
 
-dm() {
-  docker-machine $1 default
-}
-
-dmr() {
-  eval $(docker-machine env default)
-}
-
 dclean() {
   echo 'Remove stopped containers'
   docker rm $(docker ps -a -q)
