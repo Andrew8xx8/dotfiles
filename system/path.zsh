@@ -12,3 +12,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+export PATH=$PATH:/Users/avk/garmin/connectiq-sdk-mac-3.1.4-2019-09-17-f1e7e9687/bin
+
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"

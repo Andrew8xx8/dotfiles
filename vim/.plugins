@@ -38,6 +38,7 @@ Plug 'mxw/vim-jsx'
 Plug 'othree/yajs.vim'
 Plug 'othree/es.next.syntax.vim'
 Plug 'kchmck/vim-coffee-script'
+Plug 'Quramy/tsuquyomi'
 
 " HTML
 Plug 'tpope/vim-haml'
