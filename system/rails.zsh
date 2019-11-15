@@ -1,6 +1,0 @@
-alias be="bundle exec"
-alias rk="bundle exec rake"
-alias rb="bundle exec ruby"
-alias mgr="rake db:migrate && RAILS_ENV=test rake db:migrate"
-alias rlbk="rake db:rollback && RAILS_ENV=test rake db:rollback"
-alias drp="rake db:drop db:create"

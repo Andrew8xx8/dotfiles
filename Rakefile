@@ -5,7 +5,7 @@ require 'rake'
 require 'erb'
 
 desc "Hook our dotfiles into system-standard positions."
-task :install, :email, :username do |t, args|
+task :install, :email, :fullname do |t, args|
   args.with_defaults(email: "avk@8xx8.ru", fullname: "Andreww8xx8")
 
   puts
@@ -31,8 +31,8 @@ task :install, :email, :username do |t, args|
 
   process_templates Dir.glob("#{ENV["PWD"]}/**/.*.erb"), args
   install_files Dir.glob("#{ENV["PWD"]}/**/.*.symlink")
-  install_file "#{ENV["PWD"]}/vim/.vimrc.symlink", "#{ENV["HOME"]}/.nvimrc"
-  install_vim
+  #install_file "#{ENV["PWD"]}/vim/.vimrc.symlink", "#{ENV["HOME"]}/.nvimrc"
+  #install_vim
 
   puts "Installation finished successfully."
   puts "Restart your terminal.             "
