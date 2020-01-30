@@ -1,0 +1,6 @@
+dotfiles:
+  build: .
+  volumes:
+    - ~/:/dotfiles
+  environment:
+    LANG: en_US.UTF-8
